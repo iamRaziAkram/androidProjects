@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Library App</string>
+    <string name="textview">Library App</string>
+    <string name="textview3">404 NOT FOUND</string>
+    <string name="button">Show all books</string>
+</resources>

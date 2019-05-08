@@ -35,17 +35,20 @@ public class IncomeActivity extends AppCompatActivity {
 
     public void calculate()
     {
-        int Net = 0;
-        int Tax=0;
-        int input ;
+        long Net = 0;
+        long Tax=0;
+        long input;
         if(et.getText().toString().isEmpty()){
-            tx1.setText("Income field can't be empty.");
+            tx1.setText("Income field cannot be empty");
+        }
+        else if(et.getText().toString().length()>18){
+            tx1.setText("Please input the income < 999999999999999999");
         }
         else {
             int in = Integer.parseInt(et.getText().toString());
             if (in >= 1000000) {
                 input = in - 1000000;
-                Tax = (input * 30) / 100 + (500000 * 20) / 100 + (250000 * 5) / 100;
+                Tax = (input / 100 ) * 30 + (500000 * 20) / 100 + (250000 * 5) / 100;
                 Net = in - Tax;
             } else if (in >= 500000 && in < 1000000) {
                 input = in - 500000;

@@ -57,7 +57,7 @@ public class GSTActivity extends AppCompatActivity {
                 b.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        calculate();
+
 
                     }
                 });
@@ -68,11 +68,17 @@ public class GSTActivity extends AppCompatActivity {
     }
 
     public void calculate() {
-        int am = 0;
-        float t;
+        long am = 0;
+        double t;
         String val = list1.getItemAtPosition(position).toString();;
-        float total = 0, tax = 0;
-        if (!TextUtils.isEmpty(Text.getText().toString())) {
+        double total = 0, tax = 0;
+        if(Text.getText().toString().isEmpty()){
+            tx1.setText("Income field cannot be empty");
+        }
+        else if(Text.getText().toString().length()>18){
+            tx1.setText("Please input the amount < 999999999999999999");
+        }
+        else {
             am = Integer.parseInt(Text.getText().toString());
             if (val.equals(itemslist.get(position))) {
                 t=Float.parseFloat(taxlist.get(position));
@@ -83,10 +89,6 @@ public class GSTActivity extends AppCompatActivity {
                             "GST Calculated =" + tax + "\n" +
                             "Total Amount (Inclusion of GST) =" + total + "\t");
             }
-        } else {
-            tx1.setText("Amount for "+val+" ="+am+"\n"+
-                            "Tax =" + tax + "\n" +
-                        "Total amount =" + total);
         }
     }
 

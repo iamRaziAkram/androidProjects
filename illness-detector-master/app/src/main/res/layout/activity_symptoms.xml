@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#71ed24"
-    tools:context="index1.developer.acadview.com.illnessdetectorapp.Symptoms">
+    tools:context="index1.developer.acadview.com.illnessdetectorapp.SymptomsActivity">
 
 
     <Button
